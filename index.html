@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tibetan Dictionary Entry</title>
+</head>
+<body>
+  <h1>Dictionary Word Entry</h1>
+
+  <label>Tibetan: <input id="tibetan" /></label><br />
+  <label>Part of Speech: <input id="pos" /></label><br />
+  <label>French: <input id="french" /></label><br />
+  <label>English: <input id="english" /></label><br />
+  <button onclick="addEntry()">Add</button>
+
+  <pre id="output"></pre>
+
+  <script>
+    const entries = [];
+
+    function addEntry() {
+      const entry = {
+        tibetan: document.getElementById('tibetan').value,
+        part_of_speech: document.getElementById('pos').value,
+        french: document.getElementById('french').value,
+        english: document.getElementById('english').value
+      };
+      entries.push(entry);
+      document.getElementById('output').textContent = JSON.stringify(entries, null, 2);
+    }
+  </script>
+</body>
+</html>
